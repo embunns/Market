@@ -1,19 +1,22 @@
-@extends('layouts.app')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="h4 text-dark fw-bold">
+            {{ __('Daftar Customer') }}
+        </h2>
+    </x-slot>
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
+    <div class="py-4">
+        <div class="container">
             <div class="card shadow-sm">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5 class="mb-0">{{ __('Daftar Customer') }}</h5>
-                    <a href="{{ route('customers.create') }}" class="btn btn-primary">
-                        <i class="bi bi-plus-circle me-1"></i> {{ __('Tambah Customer Baru') }}
-                    </a>
-                </div>
-
                 <div class="card-body">
-                    @if (session('success'))
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5 class="card-title m-0">{{ __('Semua Customer') }}</h5>
+                        <a href="{{ route('customers.create') }}" class="btn btn-primary">
+                            <i class="bi bi-plus-circle me-1"></i> {{ __('Tambah Customer Baru') }}
+                        </a>
+                    </div>
+
+                    @if(session('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             {{ session('success') }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -42,9 +45,6 @@
                                         <td>{{ Str::limit($customer->address, 50) }}</td>
                                         <td>
                                             <div class="d-flex gap-1">
-                                                <a href="{{ route('customers.show', $customer->id) }}" class="btn btn-info btn-sm">
-                                                    {{ __('Detail') }}
-                                                </a>
                                                 <a href="{{ route('customers.edit', $customer->id) }}" class="btn btn-warning btn-sm">
                                                     {{ __('Edit') }}
                                                 </a>
@@ -78,5 +78,4 @@
             </div>
         </div>
     </div>
-</div>
-@endsection
+</x-app-layout>

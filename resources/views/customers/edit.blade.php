@@ -1,9 +1,12 @@
-@extends('layouts.app')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="h4 text-dark fw-bold">
+            {{ __('Edit Customer') }}
+        </h2>
+    </x-slot>
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="py-4">
+        <div class="container">
             <div class="card shadow-sm">
                 <div class="card-header">
                     <h5 class="mb-0">{{ __('Edit Customer') }}</h5>
@@ -59,5 +62,4 @@
             </div>
         </div>
     </div>
-</div>
-@endsection
+</x-app-layout>
