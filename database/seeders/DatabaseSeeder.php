@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Illuminate\Database\seeder;
+use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         ProductSeeder::class,
         CategorySeeder::class,
         CustomerSeeder::class,
+        TransactionsSeeder::class,
     ]);
 }
 
